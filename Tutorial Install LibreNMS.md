@@ -12,13 +12,13 @@
    sudo apt install acl curl fping git graphviz imagemagick mariadb-client mariadb-server mtr-tiny nginx-full nmap php-cli php-curl php-fpm php-gd php-gmp php-json php-mbstring php-mysql php-snmp php-xml php-zip rrdtool snmp snmpd unzip python3-command-runner python3-pymysql python3-dotenv python3-redis python3-setuptools python3-psutil python3-systemd python3-pip whois traceroute -y
    ```
 
-## 👤 Menambahkan Pengguna LibreNMS
+## Menambahkan Pengguna LibreNMS
 
 ```bash
 sudo useradd librenms -d /opt/librenms -M -r -s "$(which bash)"
 ```
 
-## 📅 Mengunduh dan Mengatur LibreNMS
+## Mengunduh dan Mengatur LibreNMS
 
 1. **Klon repositori LibreNMS:**
    ```bash
@@ -34,7 +34,7 @@ sudo useradd librenms -d /opt/librenms -M -r -s "$(which bash)"
    sudo setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/
    ```
 
-## 🥈 Instalasi Dependensi PHP
+## Instalasi Dependensi PHP
 
 ```bash
 sudo su - librenms
@@ -42,7 +42,7 @@ sudo su - librenms
 exit
 ```
 
-## ⏰ Mengatur Zona Waktu PHP
+## Mengatur Zona Waktu PHP
 
 1. **Edit konfigurasi PHP:**
    ```bash
@@ -59,7 +59,7 @@ exit
    sudo systemctl restart php8.2-fpm
    ```
 
-## 🛠️ Konfigurasi MariaDB
+## Konfigurasi MariaDB
 
 1. **Amankan MariaDB:**
    ```bash
@@ -77,7 +77,7 @@ exit
    EXIT;
    ```
 
-## 🌐 Konfigurasi Nginx
+## Konfigurasi Nginx
 
 1. **Buat konfigurasi Nginx:**
    ```bash
@@ -114,7 +114,7 @@ exit
    sudo systemctl reload nginx
    ```
 
-## 🚧 Konfigurasi SNMP
+## Konfigurasi SNMP
 
 1. **Salin file konfigurasi:**
    ```bash
@@ -126,7 +126,7 @@ exit
    sudo systemctl restart snmpd
    ```
 
-## 🔄 Menambahkan Cron Job dan Logrotate
+## Menambahkan Cron Job dan Logrotate
 
 ```bash
 sudo cp /opt/librenms/librenms.nonroot.cron /etc/cron.d/librenms
@@ -142,7 +142,7 @@ sudo cp /opt/librenms/misc/librenms.logrotate /etc/logrotate.d/librenms
 
 2. **Ikuti panduan instalasi web.**
 
-## ✅ Validasi Instalasi
+## Validate Instalasi
 
 Pastikan semua item pada halaman validasi ditandai dengan "OK". Jika ada masalah, periksa kembali konfigurasi Anda.
 
@@ -152,3 +152,5 @@ Pastikan semua item pada halaman validasi ditandai dengan "OK". Jika ada masalah
 
 Untuk info lebih lanjut, kunjungi: [https://docs.librenms.org](https://docs.librenms.org)
 
+Jika Installasi Server LibreNMS sudah selesai dan Validate All is OK, kalian bisa add Device yang ingin di monitor dengan cara mengaktifkan dan membuat Profil SNMP dan arah kan IP ke IP server LibreNMS anda.
+Anda jg bisa membuat Poller menjadi 1 menit dengan merubah config di Cron Tab nya.
